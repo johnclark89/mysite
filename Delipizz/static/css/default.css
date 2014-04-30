@@ -1,0 +1,47 @@
+ body{
+	width: 1024px;
+    }
+
+#header {
+	height: 150px;
+	float:left;
+	
+	width: 1024px;
+}
+		
+#menu{
+	width: 1024px;
+	float: left;
+}
+
+#page{
+	width: 1024px;
+    background-color: darkgray;
+    float: left;
+}
+
+
+ul
+{
+list-style-type:none;
+margin:0;
+padding:0;
+text-align: center;
+overflow:hidden;
+}
+li
+{
+float:left;
+}
+a
+{
+color: white;
+display:block;
+text-decoration: none;
+width:256px;
+background-color:black;
+}
+
+
+
+

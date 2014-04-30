@@ -1,0 +1,37 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>{% block title%}DeliPizz{% endblock %}</title>
+    <link rel="stylesheet" type="text/css", href="{% static "css/default.css" %}">
+
+</head>
+
+
+<body>
+
+    <div id="header">
+            <img src=" {% static "img/header.png"%}"/>
+    </div>
+
+    <div id="menu">
+
+        <ul>
+		     <li><a href="accueil">Accueil</a></li>
+             <li><a href="infos">Infos</a></li>
+             <li><a href="commande">Commande</a></li>
+             <li><a href="about">A propos</a></li>
+	    </ul>
+    </div>
+
+        {% block content %}
+        {% endblock %}
+
+<div id="footer">
+    <img src=" {% static "img/footer.png"%}"/>
+</div>
+
+</body>
+
+</html>
