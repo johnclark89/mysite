@@ -158,3 +158,5 @@ LOGGING = {
         },
     }
 }
+
+#AUTH_PROFILE_MODULE = 'commande.Customer'

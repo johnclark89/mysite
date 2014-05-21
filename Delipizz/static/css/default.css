@@ -1,12 +1,14 @@
- body{
+{% load static %}
+body{
 	width: 1024px;
     }
 
 #header {
 	height: 150px;
 	float:left;
-	
 	width: 1024px;
+    background-image:url("/static/img/header.png");
+    text-align: right;
 }
 		
 #menu{
@@ -33,7 +35,7 @@ li
 {
 float:left;
 }
-a
+a.menu
 {
 color: white;
 display:block;
