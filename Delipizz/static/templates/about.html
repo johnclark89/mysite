@@ -1,17 +1,62 @@
-{% extends "base.html" %}
+{% extends "foundation/base.html" %}
 {% load static %}
 
-{% block content %}
-    <div id="page">
+{% block title %}DeliPizz | A propos{% endblock title %}
 
-        <h1>A propos</h1>
-        <p>Vous êtes sur la page A propos</p>
+{% block base_body %}
+
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/delipizz/accueil">DeliPizz</a></h1>
+        </li>
+         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+      <section class="top-bar-section">
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li><a href="/delipizz/accueil">Accueil</a></li>
+            <li><a href="/delipizz/pizzas">Pizzas</a></li>
+            <li><a href="/delipizz/commande">Commander</a></li>
+            <li><a href="/delipizz/infos">Infos Pratiques</a></li>
+            <li class = "active" ><a href="/delipizz/about">A propos</a></li>
+            <li><a href="/delipizz/accounts/register">Compte</a></li>
+        </ul>
+      </section>
+    </nav>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>DeliPizz SA</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns">
+      	<div class="panel">
+	        <h4> Implantée dans le monde depuis 50 ans, l’histoire de DeliPizz est jalonnée de succès </h4>
+            <p> L'histoire de DeliPizz commence en 1958, quand deux étudiants de Wichita (Kansas), Frank et Dan Carney
+                ont l'idée d'ouvrir une pizzeria. Même si le concept est relativement nouveau pour bon nombre
+                d'Américains à l'époque, les deux frères sont convaincus du potentiel de cette nouvelle entreprise.
+                Après avoir emprunté 600$ à leur mère, ils achètent du matériel d'occasion et louent un petit
+                emplacement à un carrefour routier de leur ville d'origine. Peu de temps après, leurs efforts sont
+                couronnés par l'ouverture du premier restaurant DeliPizz ; à l'origine de ce qui va devenir la plus
+                grande entreprise de restauration de pizza dans le monde.</p>
+
+            <img src="{% static "img/img1.jpg" %}" alt="Image1"/><br><br>
+
+            <p>De nos jours, DeliPizz est une division du groupe Yum ! Brands et compte 12 000 restaurants et
+               magasins de livraison avec plus de 250 000 employés.
+               Particulièrement bien implanté en Europe, DeliPizz compte 776 restaurants dans 29 pays.</p>
+        </div>
+      </div>
+    </div>
 
     </div>
 
-{% endblock %}
-   
-    
+{% endblock base_body %}
 
 
 

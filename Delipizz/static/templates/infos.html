@@ -1,15 +1,97 @@
-{% extends "base.html" %}
+{% extends "foundation/base.html" %}
 {% load static %}
 
-{% block content %}
-    <div id="page">
+{% block title %}DeliPizz | Infos Pratiques{% endblock title %}
 
-        <h1>infos pratiques</h1>
-        <p>Vous êtes sur les infos pratiques</p>
+{% block base_body %}
 
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/delipizz/accueil">DeliPizz</a></h1>
+        </li>
+         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li><a href="/delipizz/accueil">Accueil</a></li>
+            <li><a href="/delipizz/pizzas">Pizzas</a></li>
+            <li><a href="/delipizz/commande">Commander</a></li>
+            <li class = "active" ><a href="/delipizz/infos">Infos Pratiques</a></li>
+            <li><a href="/delipizz/about">A propos</a></li>
+            <li><a href="/delipizz/accounts/register">Compte</a></li>
+        </ul>
+      </section>
+    </nav>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>Infos Pratiques</h1>
+      </div>
     </div>
 
-{% endblock %}
+    <div class="row">
+      <div class="large-12 columns">
+      	<div class="panel">
+
+            <div class="row">
+	        	<div class="large-4 medium-4 columns">
+	    		<h2>Martigny</h2>
+
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d691.6303391710708!2d7.0728339000000044!3d46.10051740000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478ec9d1802fe9e9%3A0xd09279087db2fe37!2sRue+de+l&#39;H%C3%B4tel-de-Ville+6!5e0!3m2!1sfr!2sch!4v1400768429178" width="250" height="300" frameborder="0" style="border:0"></iframe><br><br>
+
+                      <b>Adresse:</b><br>
+                            DELIPIZZ SA<br>
+                            Rue de l'Hôtel-de-Ville 6<br>
+                            1920 Martigny<br><br>
+                      <b>Téléphone:</b><br>
+                            Tel: 027 206 00 00<br><br>
+                      <b>Heures d'ouvertures:</b><br>
+                            Lun-mer 10h - 19h<br>
+                            Jeu-ven 10h - 21h<br>
+                            Sam 9h - 18h<br><br>
+	    	    </div>
+	        	<div class="large-4 medium-4 columns">
+	        		<h2>Sion</h2>
+
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1379.9848791488228!2d7.359004799999989!3d46.23094609999992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478edc3aa3604533%3A0xe2238388391cd67d!2sAvenue+du+Midi+5!5e0!3m2!1sfr!2sch!4v1400768703930" width="250" height="300" frameborder="0" style="border:0"></iframe><br><br>
+
+	        	      <b>Adresse:</b><br>
+                            DELIPIZZ SA<br>
+                            Avenue du Midi 5<br>
+                            1950 Sion<br><br>
+                      <b>Téléphone:</b><br>
+                            Tel: 027 207 00 00<br><br>
+                      <b>Heures d'ouvertures:</b><br>
+                            Lun-mer 10h - 19h<br>
+                            Jeu-ven 10h - 21h<br>
+                            Sam 9h - 18h<br><br>
+                </div>
+	        	<div class="large-4 medium-4 columns">
+	        		<h2>Sierre</h2>
+
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2756.8286715636764!2d7.529146499999987!3d46.293377799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478f1f0976f65735%3A0xd06e7cae3c02e664!2sAvenue+des+Alpes+10!5e0!3m2!1sfr!2sch!4v1400768963162" width="250" height="300" frameborder="0" style="border:0"></iframe><br><br>
+
+	        	      <b>Adresse:</b><br>
+                            DELIPIZZ SA<br>
+                            Avenue des Alpes 10<br>
+                            3960 Sierre<br><br>
+                      <b>Téléphone:</b><br>
+                            Tel: 027 208 00 00<br><br>
+                      <b>Heures d'ouvertures:</b><br>
+                            Lun-mer 10h - 19h<br>
+                            Jeu-ven 10h - 21h<br>
+                            Sam 9h - 18h<br><br>
+                </div>
+			</div>
+        </div>
+      </div>
+    </div>
+
+{% endblock base_body %}
 
 
 

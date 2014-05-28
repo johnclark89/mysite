@@ -1,12 +1,64 @@
-{% extends "base.html" %}
+{% extends "foundation/base.html" %}
 {% load static %}
 
-{% block content %}
+{% block title %}DeliPizz | S'enregistrer{% endblock title %}
 
-   <h2> Hi {{ full_name }} Logged in!</h2>
-    <p>Click <a href="/delipizz/accounts/logout">here</a> to logout </p>
+{% block base_body %}
 
-{% endblock %}
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/delipizz/accueil">DeliPizz</a></h1>
+        </li>
+         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li><a href="/delipizz/accueil">Accueil</a></li>
+            <li><a href="/delipizz/pizzas">Pizzas</a></li>
+            <li><a href="/delipizz/commande">Commander</a></li>
+            <li><a href="/delipizz/infos">Infos Pratiques</a></li>
+            <li><a href="/delipizz/about">A propos</a></li>
+            <li  class = "active"><a href="/delipizz/accounts/register">Compte</a></li>
+        </ul>
+      </section>
+    </nav>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>Compte</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns">
+      	<div class="panel">
+
+            <h2>Succès</h2>
+
+                <p> Bonjour {{ full_name }}, vous êtes connecté!</p>
+                <p>Cliquez <a href="/delipizz/accounts/logout">ici</a> pour vous déconnecter </p>
+
+        </div>
+      </div>
+    </div>
+
+{% endblock base_body %}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

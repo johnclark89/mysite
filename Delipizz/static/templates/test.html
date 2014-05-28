@@ -1,0 +1,98 @@
+{% extends "foundation/base.html" %}
+{% load static %}
+
+{% block title %}DeliPizz | Commander{% endblock title %}
+
+{% block base_body %}
+
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/delipizz/accueil">DeliPizz</a></h1>
+        </li>
+         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li class="active"><a href="#">Right Button Active</a></li>
+          <li class="has-dropdown">
+            <a href="#">Right Button Dropdown</a>
+            <ul class="dropdown">
+              <li><a href="#">First link in dropdown</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li><a href="/delipizz/accueil">Accueil</a></li>
+            <li class = "active" ><a href="/delipizz/commande">Commander</a></li>
+            <li><a href="/delipizz/infos">Infos Pratiques</a></li>
+            <li><a href="/delipizz/about">A propos</a></li>
+            <li><a href="/delipizz/accounts/register">Compte</a></li>
+        </ul>
+      </section>
+    </nav>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>Passez commande</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns">
+      	<div class="panel">
+
+            <div id="my_form">
+                    <form action="#" name="form_test">
+                    <!-- Le formulaire standard -->
+                    {{ form }}
+
+                    <button class="btn btn-success btn-sm" id="bt_add_sorte" type="button">+</button>
+
+                    {{ sorteForm.management_form }}
+                        <!-- Les formulaires du formset -->
+                        <div id="formsetZone">
+                            {% for form in sorteForm %}
+                                <div class="nsorte">
+                                {{ form }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Element à copier pour un ajout au formset -->
+                <div style="display:none;">
+                    <div id="eform" class="nsorte" >
+                        {{ sorteForm.empty_form }}
+                        <div class='btn btn-warning btn-sm bt_rm_sorte'>
+                                <i class='glyphicon glyphicon-trash'></i>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+
+{% endblock base_body %}
+
+
+
+

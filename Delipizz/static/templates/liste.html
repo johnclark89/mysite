@@ -1,7 +1,7 @@
 {% extends "foundation/base.html" %}
 {% load static %}
 
-{% block title %}DeliPizz | S'enregistrer{% endblock title %}
+{% block title %}DeliPizz | Commander{% endblock title %}
 
 {% block base_body %}
 
@@ -18,43 +18,44 @@
         <!-- Left Nav Section -->
         <ul class="left">
             <li><a href="/delipizz/accueil">Accueil</a></li>
-            <li><a href="/delipizz/pizzas">Pizzas</a></li>
+            <li class = "active" ><a href="/delipizz/pizzas">Pizzas</a></li>
             <li><a href="/delipizz/commande">Commander</a></li>
             <li><a href="/delipizz/infos">Infos Pratiques</a></li>
             <li><a href="/delipizz/about">A propos</a></li>
-            <li  class = "active"><a href="/delipizz/accounts/register">Compte</a></li>
+            <li><a href="/delipizz/accounts/register">Compte</a></li>
         </ul>
       </section>
     </nav>
 
     <div class="row">
       <div class="large-12 columns">
-        <h1>Compte</h1>
+        <h1>Nos pizzas</h1>
       </div>
     </div>
 
     <div class="row">
-      <div class="large-12 columns">
-      	<div class="panel">
+        <div class="large-12 columns">
 
-        <h2>Succès</h2>
+                   <table class="large-12 columns">
+                    <tr>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Prix</th>
 
-            <p> Félicitations, vous avez créé un compte.</p>
-            <p>Cliquez <a href="/delipizz/accounts/register">ici</a> pour vous connecter </p>
+                    </tr>
+                    {% for pizza in pizzas %}
+                    <tr>
+                    <td>{{ pizza.name }}</td>
+                    <td>{{ pizza.description }}</td>
+                    <td class="text-right"> {{ pizza.price }}.- </td>
+                                    <tr>
+                    {% endfor %}
+                    </table>
 
         </div>
-     </div>
     </div>
 
 {% endblock base_body %}
-
-
-
-
-
-
-
-
 
 
 

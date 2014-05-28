@@ -1,16 +1,174 @@
-{% extends "base.html" %}
+{% extends "foundation/base.html" %}
 {% load static %}
 
-{% block content %}
-    <div id="page">
+{% block title %}DeliPizz | Commander{% endblock title %}
 
-        <h1>commande</h1>
-        <p>Vous êtes sur la page commande</p>
+{% block head_js %}
 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+      // Code adapted from http://djangosnippets.org/snippets/1389/
+
+      function updateElementIndex(el, prefix, ndx) {
+        var id_regex = new RegExp('(' + prefix + '-\\d+-)');
+        var replacement = prefix + '-' + ndx + '-';
+        if ($(el).attr("for")) $(el).attr("for", $(el).attr("for").replace(id_regex,
+     replacement));
+        if (el.id) el.id = el.id.replace(id_regex, replacement);
+        if (el.name) el.name = el.name.replace(id_regex, replacement);
+      }
+
+      function deleteForm(btn, prefix) {
+        var formCount = parseInt($('#id_' + prefix + '-TOTAL_FORMS').val());
+
+        if (formCount > 1) {
+          // Delete the item/form
+          $(btn).parents('.item').remove();
+
+          var forms = $('.item'); // Get all the forms
+
+          // Update the total number of forms (1 less than before)
+          $('#id_' + prefix + '-TOTAL_FORMS').val(forms.length);
+
+          var i = 0;
+          // Go through the forms and set their indices, names and IDs
+          for (formCount = forms.length; i < formCount; i++) {
+            $(forms.get(i)).children().children().each(function() {
+              updateElementIndex(this, prefix, i);
+            });
+          }
+
+        } // End if
+        else {
+            alert("Vous devez commander au moins une pizza!");
+        }
+        return false;
+      }
+
+
+      function addForm(btn, prefix) {
+        var formCount = parseInt($('#id_' + prefix + '-TOTAL_FORMS').val());
+
+        // You can only submit a maximum of 10 todo items
+        if (formCount < 10) {
+          // Clone a form (without event handlers) from the first form
+          var row = $(".item:first").clone(false).get(0);
+          // Insert it after the last form
+          $(row).removeAttr('id').hide().insertAfter(".item:last").slideDown(300);
+
+          // Remove the bits we don't want in the new row/form
+          // e.g. error messages
+          $(".errorlist", row).remove();
+          $(row).children().removeClass('error');
+
+          // Relabel/rename all the relevant bits
+          $(row).children().children().each(function() {
+            updateElementIndex(this, prefix, formCount);
+            if ( $(this).attr('type') == 'text' )
+              $(this).val('');
+          });
+
+          // Add an event handler for the delete item/form link
+          $(row).find('.delete').click(function() {
+            return deleteForm(this, prefix);
+          });
+
+          // Update the total form count
+          $('#id_' + prefix + '-TOTAL_FORMS').val(formCount + 1);
+
+        } // End if
+        else {
+          alert("Désolé, vous ne pouvez pas commander plus de 10 sortes de pizza.");
+        }
+        return false;
+      }
+
+      // Register the click event handlers
+      $("#add").click(function() {
+        return addForm(this, 'form');
+      });
+
+      $(".delete").click(function() {
+        return deleteForm(this, 'form');
+      });
+
+
+    });
+    </script>
+
+{% endblock head_js %}
+
+{% block base_body %}
+
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/delipizz/accueil">DeliPizz</a></h1>
+        </li>
+         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li><a href="/delipizz/accueil">Accueil</a></li>
+            <li><a href="/delipizz/pizzas">Pizzas</a></li>
+            <li class = "active" ><a href="/delipizz/commande">Commander</a></li>
+            <li><a href="/delipizz/infos">Infos Pratiques</a></li>
+            <li><a href="/delipizz/about">A propos</a></li>
+            <li><a href="/delipizz/accounts/register">Compte</a></li>
+        </ul>
+      </section>
+    </nav>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>Passez commande</h1>
+      </div>
     </div>
 
-{% endblock %}
-    
+    <div class="row">
+      <div class="large-12 columns">
+      	<div class="panel">
+
+
+                <form action="" method="POST">{% csrf_token %}
+
+                            <h2>Infos Commande</h2>
+                        <label>Client :</label>{{ todo_list_form.client }}
+                       <label>Date et heure de livraison :</label>{{ todo_list_form.date_delivery }}
+                       <label>Adresse :</label>{{ todo_list_form.address }}
+
+
+
+
+
+                    <h4>Pizzas</h4>
+                    {{ todo_item_formset.management_form }}
+                    {% for form in todo_item_formset.forms %}
+                    <div class="item">
+
+
+                      {{ form.as_p }}
+
+
+                      <p style=""><a class="delete" href="#">Delete</a></p>
+                    </div>
+                    {% endfor %}
+
+                    <p><a id="add" href="#">Add another item</a></p>
+
+                    <input type="submit" value=" Submit " />
+
+                </form>
+        </div>
+      </div>
+    </div>
+
+{% endblock base_body %}
 
 
 

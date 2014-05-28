@@ -1,17 +1,83 @@
-{% extends "base.html" %}
+{% extends "foundation/base.html" %}
 {% load static %}
 
-{% block content %}
+{% block title %}DeliPizz | S'enregistrer{% endblock title %}
 
-    <h2>Register</h2>
-    <form action="/delipizz/accounts/register/" method="post">{% csrf_token %}
-    {{ form }}
+{% block base_body %}
 
-    <input type="submit" value="Register" />
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/delipizz/accueil">DeliPizz</a></h1>
+        </li>
+         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
 
-    </form>
+      <section class="top-bar-section">
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li><a href="/delipizz/accueil">Accueil</a></li>
+            <li><a href="/delipizz/pizzas">Pizzas</a></li>
+            <li><a href="/delipizz/commande">Commander</a></li>
+            <li><a href="/delipizz/infos">Infos Pratiques</a></li>
+            <li><a href="/delipizz/about">A propos</a></li>
+            <li  class = "active"><a href="/delipizz/accounts/register">Compte</a></li>
+        </ul>
+      </section>
+    </nav>
 
-{% endblock %}
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>Compte</h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns">
+      	<div class="panel">
+
+            <h3> Connectez-vous</h3>
+
+                <form action="/delipizz/accounts/auth/" method="post">{% csrf_token %}
+                     <label for="username">Utilisateur:</label>
+                        <input type="text" name="username" value="" id="username">
+                     <label for="password">Mot de passe:</label>
+                        <input type="password" name="password" value="" id="password">
+                        <input type="submit" value="login"/>
+                </form>
+
+                <br><br>
+
+            <h3> Créez un compte si vous n'en avez pas</h3>
+
+                <form action="/delipizz/accounts/register/" method="post">{% csrf_token %}
+                    <label>Utilisateur :</label>{{ form.username }}
+                    <label>Nom :</label> {{ form.last_name }}
+                    <label>Prénom :</label> {{ form.first_name }}
+                    <label>Email :</label>  {{ form.email }}
+                    <label>Mot de passe :</label>  {{ form.password1 }}
+                    <label>Vérification mot de passe :</label> {{ form.password2 }}
+                        <input type="submit" value="Register" />
+                </form>
+
+        </div>
+      </div>
+    </div>
+
+{% endblock base_body %}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

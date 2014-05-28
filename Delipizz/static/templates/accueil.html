@@ -1,15 +1,55 @@
-{% extends "base.html" %}
+{% extends "foundation/base.html" %}
 {% load static %}
 
-{% block content %}
-    <div id="page">
+{% block title %}DeliPizz | Accueil{% endblock title %}
 
-        <h1>Accueil</h1>
-        <p>Vous êtes sur l'accueil</p>
+{% block base_body %}
 
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/delipizz/accueil">DeliPizz</a></h1>
+        </li>
+         <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+
+
+        <!-- Left Nav Section -->
+        <ul class="left">
+            <li class = "active" ><a href="/delipizz/accueil">Accueil</a></li>
+            <li><a href="/delipizz/pizzas">Pizzas</a></li>
+            <li><a href="/delipizz/commande">Commander</a></li>
+            <li><a href="/delipizz/infos">Infos Pratiques</a></li>
+            <li><a href="/delipizz/about">A propos</a></li>
+            <li><a href="/delipizz/accounts/register">Compte</a></li>
+        </ul>
+      </section>
+    </nav>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>Bienvenue sur DeliPizz</h1>
+      </div>
     </div>
 
-{% endblock %}
+    <div class="row">
+      <div class="large-12 columns">
+      	<div class="panel">
+	        <h3> Les meilleures pizzas où que vous soyez! </h3>
+	        <p>Avec nos 3 restaurants et notre service de livraison, il n'a jamais été aussi facile pour partager une pizza entre amis!</p>
+
+            <img src="{% static "img/img1.jpg" %}" alt="Image1"/>
+
+            <br><br><br>
+            <p>Pour le lancement de notre site web, nous vous offrons 10% de rabais sur toutes nos pizzas.</p>
+      	</div>
+      </div>
+    </div>
+
+{% endblock base_body %}
 
 
 

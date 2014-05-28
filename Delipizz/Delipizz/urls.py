@@ -14,5 +14,10 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+
+    # Ajout des urls propres a l'application
     url(r'delipizz/', include('commande.urls')),
+
+    # Ajout des urls de Foundation
+    url(r'foundation/', include('foundation.urls')),
 )
